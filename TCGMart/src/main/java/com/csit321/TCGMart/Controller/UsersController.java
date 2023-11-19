@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cit321.TCGMart.Response.UserResponseDTO;
 import com.csit321.TCGMart.Entity.UsersEntity;
 import com.csit321.TCGMart.Service.UsersService;
 
@@ -52,5 +53,11 @@ public class UsersController {
 	@DeleteMapping("/deleteUser/{uid}")
 	public String deleteUser (@PathVariable int uid) {
 		return usersservice.deleteUser(uid);
+	}
+	
+	//Get user by id
+	@GetMapping("/getUserById")
+	public UserResponseDTO getUserById(@RequestParam int uid) {
+		return usersservice.getUserById(uid);
 	}
 }

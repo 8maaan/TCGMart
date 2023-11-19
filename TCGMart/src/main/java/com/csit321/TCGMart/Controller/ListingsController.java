@@ -28,7 +28,7 @@ public class ListingsController {
         return listingsservice.insertListings(listing);
     }
 
-    @GetMapping("/getListings")
+    @GetMapping("/getAllListings")
     public List<ListingsEntity> getAllListings() {
         return listingsservice.getAllListings();
     }

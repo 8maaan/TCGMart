@@ -6,6 +6,7 @@ import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cit321.TCGMart.Response.UserResponseDTO;
 import com.csit321.TCGMart.Entity.UsersEntity;
 import com.csit321.TCGMart.Repository.UsersRepository;
 
@@ -58,5 +59,27 @@ public class UsersService {
 		}
 		return msg;
 	}
+	
+	//Get/find specific user attributes
+//	public UsersEntity getUserById(int uid) {
+//	    try {
+//	        return usersrepo.findById(uid).orElseThrow(() ->
+//	                new NoSuchElementException("User " + uid + " does not exist."));
+//	    } catch (NoSuchElementException ex) {
+//	        throw new NoSuchElementException("User " + uid + " does not exist.");
+//	    }
+//	}
+	public UserResponseDTO getUserById(int uid) {
+        UsersEntity user = usersrepo.findById(uid).orElseThrow(() ->new NoSuchElementException("User " + uid + " does not exist."));
+        
+        UserResponseDTO userResponse = new UserResponseDTO();
+        userResponse.setUid(user.getUid());
+        userResponse.setUsername(user.getUsername());
+        userResponse.setPhone_num(user.getPhone_num());
+        userResponse.setEmail_address(user.getEmail_address());
+        userResponse.setMssngr_link(user.getMssngr_link());
+        return userResponse;
+    }
+	
 
 }
