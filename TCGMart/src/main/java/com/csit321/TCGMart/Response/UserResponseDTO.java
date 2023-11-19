@@ -1,4 +1,4 @@
-package com.cit321.TCGMart.Response;
+package com.csit321.TCGMart.Response;
 
 public class UserResponseDTO {
     private int uid;
