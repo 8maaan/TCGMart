@@ -18,6 +18,7 @@ public class SaleEntity {
 	private String cardtitle;
 	private int buyerid;
 	private String sellername;
+	private String cardimg;
 	
 	public SaleEntity() {
 		super();
