@@ -30,7 +30,6 @@ public class UsersController {
 		return "Working";
 	}
 		
-	
 	//C - Create a user record
 	@PostMapping("/insertUser")
 	public UsersEntity insertStudent(@RequestBody UsersEntity user) {
