@@ -25,7 +25,7 @@ public class SaleEntity {
 		// TODO Auto-generated constructor stub
 	}
 
-	public SaleEntity(int saleid, float price, int cardid, String cardtitle, int buyerid, String sellername) {
+	public SaleEntity(int saleid, float price, int cardid, String cardtitle, int buyerid, String sellername, String cardimg) {
 		super();
 		this.saleid = saleid;
 		this.price = price;
@@ -33,6 +33,7 @@ public class SaleEntity {
 		this.cardtitle = cardtitle;
 		this.buyerid = buyerid;
 		this.sellername = sellername;
+		this.cardimg = cardimg;
 	}
 
 	public int getSaleid() {
@@ -81,6 +82,14 @@ public class SaleEntity {
 
 	public void setSellername(String sellername) {
 		this.sellername = sellername;
+	}
+
+	public String getCardimg() {
+		return cardimg;
+	}
+
+	public void setCardimg(String cardimg) {
+		this.cardimg = cardimg;
 	}
 	
 	

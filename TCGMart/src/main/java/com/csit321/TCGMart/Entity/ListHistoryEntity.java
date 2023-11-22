@@ -15,6 +15,7 @@ public class ListHistoryEntity {
 	//	UserID 	
     private int uid; 	
 	private String cardInfo;
+	private String cardImg;
 	private String date;
 	private String time;
 	private String status;
@@ -23,12 +24,13 @@ public class ListHistoryEntity {
 		super();
 	}
 	
-	public ListHistoryEntity(int listinghistoryid, int uid, String cardInfo, String date, String time,
+	public ListHistoryEntity(int listinghistoryid, int uid, String cardInfo, String cardImg, String date, String time,
 			String status) {
 		super();
 		this.listinghistoryid = listinghistoryid;
 		this.uid = uid;
 		this.cardInfo = cardInfo;
+		this.cardImg = cardImg;
 		this.date = date;
 		this.time = time;
 		this.status = status;
@@ -62,6 +64,14 @@ public class ListHistoryEntity {
 	}
 	public int getUid() {
 		return uid;
+	}
+
+	public String getCardImg() {
+		return cardImg;
+	}
+
+	public void setCardImg(String cardImg) {
+		this.cardImg = cardImg;
 	}
 	
 	
