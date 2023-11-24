@@ -1,16 +1,16 @@
 package com.csit321.TCGMart.Response;
 
-public class UserResponseDTO {
+public class UserDetailsDTO {
     private int uid;
     private String username;
     private String phone_num;
     private String email_address;
     private String mssngr_link;
-	public UserResponseDTO() {
+	public UserDetailsDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public UserResponseDTO(int uid, String username, String phone_num, String email_address, String mssngr_link) {
+	public UserDetailsDTO(int uid, String username, String phone_num, String email_address, String mssngr_link) {
 		super();
 		this.uid = uid;
 		this.username = username;
@@ -48,6 +48,5 @@ public class UserResponseDTO {
 	public void setMssngr_link(String mssngr_link) {
 		this.mssngr_link = mssngr_link;
 	}
-
-    
+ 
 }

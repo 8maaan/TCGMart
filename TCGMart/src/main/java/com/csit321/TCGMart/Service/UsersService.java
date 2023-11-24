@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.csit321.TCGMart.Entity.UsersEntity;
 import com.csit321.TCGMart.Repository.UsersRepository;
-import com.csit321.TCGMart.Response.UserResponseDTO;
+import com.csit321.TCGMart.Response.UserDetailsDTO;
 
 @Service
 public class UsersService {
@@ -69,10 +69,10 @@ public class UsersService {
 //	        throw new NoSuchElementException("User " + uid + " does not exist.");
 //	    }
 //	}
-	public UserResponseDTO getUserById(int uid) {
+	public UserDetailsDTO getUserById(int uid) {
         UsersEntity user = usersrepo.findById(uid).orElseThrow(() ->new NoSuchElementException("User " + uid + " does not exist."));
         
-        UserResponseDTO userResponse = new UserResponseDTO();
+        UserDetailsDTO userResponse = new UserDetailsDTO();
         userResponse.setUid(user.getUid());
         userResponse.setUsername(user.getUsername());
         userResponse.setPhone_num(user.getPhone_num());
@@ -81,5 +81,15 @@ public class UsersService {
         return userResponse;
     }
 	
+	//R by username
+//	public boolean getUserByUsername(String username) {
+//	    List<UsersEntity> userName= usersrepo.findByUsername(username);
+//	    return userName.isEmpty();
+//	}
+	
+	public boolean userValidtyUsername(String username) {
+		List<UsersEntity> users = usersrepo.findByUsername(username);
+	    return !users.isEmpty();
+	}
 
 }

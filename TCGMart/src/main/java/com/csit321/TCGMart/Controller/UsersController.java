@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.csit321.TCGMart.Entity.UsersEntity;
-import com.csit321.TCGMart.Response.UserResponseDTO;
+import com.csit321.TCGMart.Response.UserDetailsDTO;
 import com.csit321.TCGMart.Service.UsersService;
 
 @RestController
@@ -56,7 +56,16 @@ public class UsersController {
 	
 	//Get user by id
 	@GetMapping("/getUserById")
-	public UserResponseDTO getUserById(@RequestParam int uid) {
+	public UserDetailsDTO getUserById(@RequestParam int uid) {
 		return usersservice.getUserById(uid);
+	}
+	
+//	@GetMapping("/getUserByUsername")
+//	public List<UsersEntity> getUserByUsername(@RequestParam String username){
+//		return usersservice.getUserByUsername(username);
+//	}
+	@GetMapping("/checkUserValidity")
+	public boolean userValidtyUsername(@RequestParam String username) {
+		return usersservice.userValidtyUsername(username);
 	}
 }
