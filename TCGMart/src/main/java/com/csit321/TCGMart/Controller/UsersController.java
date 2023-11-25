@@ -54,18 +54,24 @@ public class UsersController {
 		return usersservice.deleteUser(uid);
 	}
 	
+	
+	/* Additional Methods/Functions */
+	
 	//Get user by id
 	@GetMapping("/getUserById")
 	public UserDetailsDTO getUserById(@RequestParam int uid) {
 		return usersservice.getUserById(uid);
 	}
 	
-//	@GetMapping("/getUserByUsername")
-//	public List<UsersEntity> getUserByUsername(@RequestParam String username){
-//		return usersservice.getUserByUsername(username);
-//	}
-	@GetMapping("/checkUserValidity")
-	public boolean userValidtyUsername(@RequestParam String username) {
-		return usersservice.userValidtyUsername(username);
+	//Check if username exists
+	@GetMapping("/checkUsernameValidity")
+	public boolean checkUsernameValidity(@RequestParam String username) {
+		return usersservice.checkUsernameValidity(username);
 	}
+	
+	@GetMapping("/checkLoginCredentials")
+	public boolean checkLoginCredentials(@RequestParam String username, @RequestParam String password) {
+		return usersservice.checkLoginCredentials(username, password);
+	}
+	
 }

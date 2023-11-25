@@ -60,15 +60,9 @@ public class UsersService {
 		return msg;
 	}
 	
-	//Get/find specific user attributes
-//	public UsersEntity getUserById(int uid) {
-//	    try {
-//	        return usersrepo.findById(uid).orElseThrow(() ->
-//	                new NoSuchElementException("User " + uid + " does not exist."));
-//	    } catch (NoSuchElementException ex) {
-//	        throw new NoSuchElementException("User " + uid + " does not exist.");
-//	    }
-//	}
+	/* Additional Methods/Functions */
+	
+	//Get user details w/o password
 	public UserDetailsDTO getUserById(int uid) {
         UsersEntity user = usersrepo.findById(uid).orElseThrow(() ->new NoSuchElementException("User " + uid + " does not exist."));
         
@@ -81,15 +75,29 @@ public class UsersService {
         return userResponse;
     }
 	
-	//R by username
-//	public boolean getUserByUsername(String username) {
-//	    List<UsersEntity> userName= usersrepo.findByUsername(username);
-//	    return userName.isEmpty();
-//	}
-	
-	public boolean userValidtyUsername(String username) {
-		List<UsersEntity> users = usersrepo.findByUsername(username);
-	    return !users.isEmpty();
+	//Check if username already exists
+	public boolean checkUsernameValidity(String username) {
+		 UsersEntity user = usersrepo.findByUsername(username);
+//	    if(user == null) {
+//	    	return false;
+//	    }
+	    return user != null;
 	}
+	
+	//Check if log-in credentials are valid
+	public boolean checkLoginCredentials(String username, String password) {
+	    try {
+	        UsersEntity user = usersrepo.findByUsername(username);
+	        if (user != null) {
+	            return user.getUsername().equals(username) && user.getPassword().equals(password);
+	        } else {
+	            return false;
+	        }
+	    } catch (NoSuchElementException ex) {
+	        throw new NoSuchElementException("User " + username + " does not exist.");
+	    }
+	}
+	
+	
 
 }
