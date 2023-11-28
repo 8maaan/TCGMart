@@ -39,9 +39,16 @@ public class CardController {
 		return cardservice.getAllCards();
 	}
 	
+	//U - update a card
 	@PutMapping("/updateCard")
 	public CardEntity updateCard(@RequestParam int cardid, @RequestBody CardEntity newCardEntityDetails) {
 		return cardservice.updateCard(cardid, newCardEntityDetails);
+	}
+	
+	//Additional Service
+	@GetMapping("/getCardByCardId")
+	public CardEntity getCardByCardId(@RequestParam int cardid) {
+		return cardservice.getCardByCardId(cardid);
 	}
 	
 	

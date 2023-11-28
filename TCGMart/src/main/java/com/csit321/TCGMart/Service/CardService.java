@@ -44,5 +44,12 @@ public class CardService {
 			return cardrepo.save(card);
 		}
 	}
+	
+	//R - read card by card id
+	public CardEntity getCardByCardId(int cardid) {
+		CardEntity card = new CardEntity();
+		card = cardrepo.findById(cardid).orElseThrow(() ->new NoSuchElementException("Card " + cardid+ " does not exist."));
+		return card;
+	}
 
 }

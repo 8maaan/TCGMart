@@ -3,8 +3,6 @@ package com.csit321.TCGMart.Response;
 public class UserDetailsDTO {
     private int uid;
     private String username;
-    private String phone_num;
-    private String email_address;
     private String mssngr_link;
 	public UserDetailsDTO() {
 		super();
@@ -14,8 +12,6 @@ public class UserDetailsDTO {
 		super();
 		this.uid = uid;
 		this.username = username;
-		this.phone_num = phone_num;
-		this.email_address = email_address;
 		this.mssngr_link = mssngr_link;
 	}
 	public int getUid() {
@@ -30,18 +26,7 @@ public class UserDetailsDTO {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getPhone_num() {
-		return phone_num;
-	}
-	public void setPhone_num(String phone_num) {
-		this.phone_num = phone_num;
-	}
-	public String getEmail_address() {
-		return email_address;
-	}
-	public void setEmail_address(String email_address) {
-		this.email_address = email_address;
-	}
+	
 	public String getMssngr_link() {
 		return mssngr_link;
 	}

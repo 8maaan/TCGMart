@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="tblusers")
 public class UsersEntity {
@@ -15,6 +17,7 @@ public class UsersEntity {
 	
 	private String username;
 	
+	@JsonIgnore
 	private String password;
 	
 	private String phone_num;

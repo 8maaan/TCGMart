@@ -70,7 +70,7 @@ public class UsersController {
 	}
 	
 	@GetMapping("/checkLoginCredentials")
-	public boolean checkLoginCredentials(@RequestParam String username, @RequestParam String password) {
+	public int checkLoginCredentials(@RequestParam String username, @RequestParam String password) {
 		return usersservice.checkLoginCredentials(username, password);
 	}
 	

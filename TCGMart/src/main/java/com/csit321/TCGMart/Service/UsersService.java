@@ -35,7 +35,7 @@ public class UsersService {
 			user = usersrepo.findById(uid).get();
 			
 			//2.) Update
-//			user.setUsername(newUserDetails.getUsername());
+			user.setUsername(newUserDetails.getUsername());
 			user.setPassword(newUserDetails.getPassword());
 			user.setPhone_num(newUserDetails.getPhone_num());
 			user.setEmail_address(newUserDetails.getEmail_address());
@@ -69,8 +69,6 @@ public class UsersService {
         UserDetailsDTO userResponse = new UserDetailsDTO();
         userResponse.setUid(user.getUid());
         userResponse.setUsername(user.getUsername());
-        userResponse.setPhone_num(user.getPhone_num());
-        userResponse.setEmail_address(user.getEmail_address());
         userResponse.setMssngr_link(user.getMssngr_link());
         return userResponse;
     }
@@ -78,26 +76,36 @@ public class UsersService {
 	//Check if username already exists
 	public boolean checkUsernameValidity(String username) {
 		 UsersEntity user = usersrepo.findByUsername(username);
-//	    if(user == null) {
-//	    	return false;
-//	    }
 	    return user != null;
 	}
 	
 	//Check if log-in credentials are valid
-	public boolean checkLoginCredentials(String username, String password) {
-	    try {
-	        UsersEntity user = usersrepo.findByUsername(username);
-	        if (user != null) {
-	            return user.getUsername().equals(username) && user.getPassword().equals(password);
-	        } else {
-	            return false;
-	        }
-	    } catch (NoSuchElementException ex) {
-	        throw new NoSuchElementException("User " + username + " does not exist.");
+	public int checkLoginCredentials(String username, String password) {
+	    UsersEntity user = usersrepo.findByUsername(username);
+	    if (user != null && user.getPassword().equals(password)) {
+	        return user.getUid();
+	    } else {
+	        return -1;
 	    }
 	}
 	
+	
+	
+	
+	
+	
+//	public boolean checkLoginCredentials(String username, String password) {
+//	    try {
+//	        UsersEntity user = usersrepo.findByUsername(username);
+//	        if (user != null) {
+//	            return user.getUsername().equals(username) && user.getPassword().equals(password);
+//	        } else {
+//	            return false;
+//	        }
+//	    } catch (NoSuchElementException ex) {
+//	        throw new NoSuchElementException("User " + username + " does not exist.");
+//	    }
+//	}
 	
 
 }
