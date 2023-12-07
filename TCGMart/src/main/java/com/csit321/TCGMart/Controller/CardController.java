@@ -45,7 +45,21 @@ public class CardController {
 		return cardservice.updateCard(cardid, newCardEntityDetails);
 	}
 	
-	//Additional Service
+	//D - delete or remove a card
+	@PutMapping("/removecard")
+	public String removeCard(@RequestParam int cardid, @RequestParam String reason) {
+		return cardservice.removeCard(cardid, reason);
+	}
+	
+	//Additional Services
+	
+	//Fetch card by status === active
+	@GetMapping("/getAllActiveCards")
+	public List<CardEntity> getAllActiveCards(){
+		return cardservice.getAllActiveCards();
+	}
+	
+	//Fetch card by id	
 	@GetMapping("/getCardByCardId")
 	public CardEntity getCardByCardId(@RequestParam int cardid) {
 		return cardservice.getCardByCardId(cardid);

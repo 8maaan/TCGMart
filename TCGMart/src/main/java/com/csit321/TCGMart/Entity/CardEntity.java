@@ -21,9 +21,11 @@ public class CardEntity {
 	private float cardPrice;
 	private String cardDescription;
 	private int uid;
+	private String cardStatus;
 
 	public CardEntity() {
 		super();
+		this.cardStatus = "Active";
 	}
 
 	public CardEntity(int cardid, String cardTitle, String cardImg, String cardCondition, String cardNumRarity,
@@ -110,6 +112,14 @@ public class CardEntity {
 
 	public void setUid(int uid) {
 		this.uid = uid;
+	}
+	
+	public String getCardStatus() {
+		return cardStatus;
+	}
+
+	public void setCardStatus(String cardStatus) {
+		this.cardStatus = cardStatus;
 	}
 
 	

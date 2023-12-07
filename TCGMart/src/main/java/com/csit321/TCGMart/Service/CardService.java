@@ -45,6 +45,27 @@ public class CardService {
 		}
 	}
 	
+	//	D - delete card (not really)
+	public String removeCard(int cardid, String reason) {
+		CardEntity card = new CardEntity();
+		String msg = "";
+		try {
+			card = cardrepo.findById(cardid).get();
+			card.setCardStatus(reason);	
+			msg = "Card " + cardid + " status has successfully changed.";
+		}catch (NoSuchElementException ex) {
+			throw new NoSuchElementException("Card " + cardid + " does not exist.");
+		}finally {
+			cardrepo.save(card);
+		}
+		return msg;
+	}
+	
+	//R - read card by card status
+	 public List<CardEntity> getAllActiveCards() {
+	    return cardrepo.findByCardStatus("Active");
+	 }
+	
 	//R - read card by card id
 	public CardEntity getCardByCardId(int cardid) {
 		CardEntity card = new CardEntity();

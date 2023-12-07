@@ -3,9 +3,9 @@ package com.csit321.TCGMart.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.csit321.TCGMart.Entity.SaleEntity;
+import com.csit321.TCGMart.Entity.TransactionEntity;
 
 @Repository
-public interface SaleRepository extends JpaRepository<SaleEntity, Integer>{
+public interface TransactionRepository extends JpaRepository<TransactionEntity, Long>{
 
 }
