@@ -64,6 +64,15 @@ public class CardController {
 	public CardEntity getCardByCardId(@RequestParam int cardid) {
 		return cardservice.getCardByCardId(cardid);
 	}
+	//Fetch card by id	
+	@GetMapping("/getCardBySellerUid")
+	public List<CardEntity> getCardBySellerUid(@RequestParam int uid) {
+		return cardservice.getCardBySellerUid(uid);
+	}
+	
+	
+
+	
 	
 	
 }

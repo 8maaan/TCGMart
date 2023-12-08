@@ -61,6 +61,8 @@ public class CardService {
 		return msg;
 	}
 	
+	//Additional methods/functions
+	
 	//R - read card by card status
 	 public List<CardEntity> getAllActiveCards() {
 	    return cardrepo.findByCardStatus("Active");
@@ -71,6 +73,17 @@ public class CardService {
 		CardEntity card = new CardEntity();
 		card = cardrepo.findById(cardid).orElseThrow(() ->new NoSuchElementException("Card " + cardid+ " does not exist."));
 		return card;
+	}
+	
+	//R- read card by seller / uid
+	public List<CardEntity> getCardBySellerUid(int uid){
+		try {
+	        return cardrepo.findByUid(uid);
+	    } catch (Exception e) {
+	        // Handle the exception or log it as needed
+	        e.printStackTrace();	        
+	        throw new NoSuchElementException("Error while fetching cards by seller with uid: " + uid, e);
+	    }
 	}
 
 }

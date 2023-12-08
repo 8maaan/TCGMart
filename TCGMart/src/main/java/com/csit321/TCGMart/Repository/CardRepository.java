@@ -10,4 +10,5 @@ import com.csit321.TCGMart.Entity.CardEntity;
 @Repository
 public interface CardRepository extends JpaRepository<CardEntity, Integer>{
 	List<CardEntity> findByCardStatus(String cardStatus);
+	List<CardEntity> findByUid(int uid);
 }
