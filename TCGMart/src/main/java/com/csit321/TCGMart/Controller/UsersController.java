@@ -74,4 +74,15 @@ public class UsersController {
 		return usersservice.checkLoginCredentials(username, password);
 	}
 	
+	//For user profile page
+	@GetMapping("/getUserProfileInfo")
+	public UsersEntity getUserProfileInfo(@RequestParam int uid) {
+		return usersservice.getUserProfileInfo(uid);
+	}
+	
+	//Update User Dashboard
+	@PutMapping("/updateUserDashboard")
+	public UsersEntity updateUserDashboard(@RequestParam int uid, @RequestParam String type, @RequestParam double amount) {
+		return usersservice.updateUserDashboard(uid, type, amount);
+	}
 }

@@ -73,6 +73,13 @@ public class UsersService {
         return userResponse;
     }
 	
+	
+	//For User Profile Page
+	public UsersEntity getUserProfileInfo(int uid) {
+		UsersEntity user = usersrepo.findById(uid).orElseThrow(() ->new NoSuchElementException("User " + uid + " does not exist."));
+		return user;
+	}
+	
 	//Check if username already exists
 	public boolean checkUsernameValidity(String username) {
 		 UsersEntity user = usersrepo.findByUsername(username);
@@ -87,6 +94,27 @@ public class UsersService {
 	    } else {
 	        return -1;
 	    }
+	}
+	
+	@SuppressWarnings("finally")
+	public UsersEntity updateUserDashboard(int uid, String type, double amount) {
+		UsersEntity user = new UsersEntity();
+		try {
+			user = usersrepo.findById(uid).get();
+			if(type.equals("Purchase")) {
+				double current = user.getTotalPurchases();
+				user.setTotalPurchases(current + amount);
+				
+			}else if(type.equals("Earning")) {
+				double current = user.getTotalEarnings();
+				user.setTotalEarnings(current + amount);
+			}
+			
+		}catch(NoSuchElementException ex) {
+			throw new NoSuchElementException("User " + uid + " does not exist.");
+		}finally {
+			return usersrepo.save(user);
+		}
 	}
 	
 	

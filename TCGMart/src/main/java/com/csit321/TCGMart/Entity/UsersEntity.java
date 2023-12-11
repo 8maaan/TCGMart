@@ -23,9 +23,15 @@ public class UsersEntity {
 	private String email_address;
 		
 	private String mssngr_link;
+	
+	private double totalEarnings;
+	
+	private double totalPurchases;
 
 	public UsersEntity() {
 		super();
+		this.totalEarnings = 0;
+		this.totalPurchases = 0;
 	}
 
 	public UsersEntity(int uid, String username, String password, String phone_num, String email_address,
@@ -81,6 +87,22 @@ public class UsersEntity {
 
 	public int getUid() {
 		return uid;
+	}
+	
+	public double getTotalEarnings() {
+		return totalEarnings;
+	}
+
+	public void setTotalEarnings(double totalEarnings) {
+		this.totalEarnings = totalEarnings;
+	}
+
+	public double getTotalPurchases() {
+		return totalPurchases;
+	}
+
+	public void setTotalPurchases(double totalPurchases) {
+		this.totalPurchases = totalPurchases;
 	}
 	
 	
