@@ -22,6 +22,7 @@ public class CardEntity {
 	private String cardDescription;
 	private int uid;
 	private String cardStatus;
+	private String timestamp;
 
 	public CardEntity() {
 		super();
@@ -29,7 +30,7 @@ public class CardEntity {
 	}
 
 	public CardEntity(int cardid, String cardTitle, String cardImg, String cardCondition, String cardNumRarity,
-			String cardTypeHPStage, float cardPrice, String cardDescription, int uid) {
+			String cardTypeHPStage, float cardPrice, String cardDescription, int uid, String timestamp) {
 		super();
 		this.cardid = cardid;
 		this.cardTitle = cardTitle;
@@ -40,6 +41,7 @@ public class CardEntity {
 		this.cardPrice = cardPrice;
 		this.cardDescription = cardDescription;
 		this.uid = uid;
+		this.setTimestamp(timestamp);
 	}
 
 	public int getCardid() {
@@ -120,6 +122,14 @@ public class CardEntity {
 
 	public void setCardStatus(String cardStatus) {
 		this.cardStatus = cardStatus;
+	}
+
+	public String getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(String timestamp) {
+		this.timestamp = timestamp;
 	}
 
 	
