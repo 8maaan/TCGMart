@@ -49,6 +49,9 @@ public class TransactionController {
 		return transactionserv.deleteTransaction(transactionId);
 	}
 	
-	
+	@GetMapping("/getTransactionByBuyerUid")
+	public List<TransactionEntity> getTransactionByBuyerUid(@RequestParam int uid){
+		return transactionserv.getTransactionByBuyerUid(uid);
+	}
 	
 }
