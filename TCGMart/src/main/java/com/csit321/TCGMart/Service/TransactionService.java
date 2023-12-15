@@ -53,5 +53,15 @@ public class TransactionService {
 		return msg;
 	}
 	
+	//R - read transactions by buyer id
+	public List<TransactionEntity> getTransactionByBuyerUid(int uid){
+		try {
+			return transactionrepo.findByCardBuyer(uid);
+		}catch (Exception e){
+			e.printStackTrace();
+			throw new NoSuchElementException("Error while fetching transactions by buyer with uid: " + uid, e);
+		}
+	}
+	
 	
 }
